@@ -2,22 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bioscoop App</title>
+    <title>Spotlight Cinema</title>
     <link rel="stylesheet" href="src/css/style.css">
 </head>
 <body>
 
     <div class="page-container">
         <div class="login-header"></div>
-        <div class="login-inputs-container">
-            <input type="email" class="text-input">      
-            <input type="password" class="text-input">
-        </div>
-        <div class="login-button-container">
-            <button class="login-button">Login</button>
-        </div>
-        <div class="signup-link-container">
-            <a href="signup.html" class="signup-link">Sign up</a>
+        <h1 class="login-title">Spotlight Cinema</h1>
+
+        <div class="login-main">
+            <div class="login-inputs-container">
+                <input type="email" class="text-input" placeholder="Email...">      
+                <input type="password" class="text-input" placeholder="Password...">
+            </div>
+
+            <button class="login-button" onclick="window.location.href='src/pages/homepage.html'">Sign In</button>
+
+            <div class="signup-link-container">
+                <a href="src/pages/signup.html" class="signup-link">Sign up</a>
+            </div>
         </div>
     </div>
 
