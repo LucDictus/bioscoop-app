@@ -8,7 +8,7 @@ $(document).ready(function () {
               <li><a href="../about/"><img src="src/img/icons/home.svg" alt="home"></a></li>\
               <li><a href="../pakketen/"><img src="src/img/icons/profile.svg" alt="profile"></a></li>\
             </ul>\
-          </div>'\
+          </div>'
   );
   $("body").append(navbar);
 });
