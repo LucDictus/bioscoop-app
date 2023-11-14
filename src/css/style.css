@@ -113,3 +113,14 @@ nav ul li {
     text-decoration: underline;
 }
 
+img[alt='home']:hover {
+    content: url('../img/icons/home\ \(1\).svg');
+}
+
+img[alt='bookings']:hover {
+    content: url('../img/icons/Bookings\ \(1\).svg');
+}
+
+img[alt='profile']:hover {
+    content: url('../img/icons/profile\ \(1\).svg');
+}
