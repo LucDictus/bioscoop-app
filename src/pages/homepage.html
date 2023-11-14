@@ -22,15 +22,15 @@
         <div class="homepage-slider-container">
             <div class="homepage-slider-filter-container">
                 <div class="homepage-filter-item">
-                    <i class="fa-solid fa-filter" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-filter" style="color: #fffffc;"></i>
                     Filter
                 </div>
                 <div class="homepage-filter-item">
                     Location
-                    <i class="fa-solid fa-caret-down" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-caret-down" style="color: #fffffc;"></i>
                 </div>
                 <div class="homepage-filter-item">
-                    <i class="fa-solid fa-location-crosshairs" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-location-crosshairs" style="color: #fffffc;"></i>
                     Nearby
                 </div>
             </div>
@@ -66,9 +66,10 @@
             // set every film title in a own div that sits in the div class="homepage-slider-films-container"
             const films = await response.json();
             const filmsContainer = document.querySelector(".homepage-slider-films-container");
-            
+            films.splice(20);
             films.forEach((film) => {
                 if (!film.img) return;
+                
                 const filmDiv = document.createElement("div");
                 filmDiv.classList.add("homepage-slider-film");
                 filmDiv.innerHTML = `

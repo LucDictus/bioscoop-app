@@ -53,7 +53,7 @@ nav ul li {
     background-position: center;
 }
 .login-title {
-    color: #fff;
+    color: #fffffc;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -101,14 +101,14 @@ nav ul li {
 .login-button {
     margin: 10px 0 20px 0;
     padding: 10px 55px;
-    color: #fff;
+    color: #fffffc;
     font-size: 25px;
     border-radius: 10px;
     background: linear-gradient(90deg, #FE966C 0%, #F77866 100%);
     border: none;
 }
 .signup-link {
-    color: #fff;
+    color: #fffffc;
     font-size: 20px;
     margin-top: 20px;
     text-decoration: underline;
