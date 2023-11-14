@@ -1,78 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spotlight Cinema</title>
-    <link rel="stylesheet" href="src/css/style.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="src/css/style.css" />
+  </head>
+  <body>
     <div class="page-container">
-        <div class="login-header"></div>
-        <h1 class="login-title">Spotlight Cinema</h1>
+      <div class="login-header"></div>
+      <h1 class="login-title">Spotlight Cinema</h1>
 
-        <div class="login-main">
-            <div class="login-inputs-container">
-                <input type="email" class="text-input" placeholder="Email...">      
-                <input type="password" class="text-input" placeholder="Password...">
-            </div>
-
-            <button class="login-button" onclick="window.location.href='src/pages/homepage.html'">Sign In</button>
-
-            <div class="signup-link-container">
-                <a href="src/pages/signup.html" class="signup-link">Sign up</a>
-            </div>
+      <div class="login-main">
+        <div class="login-inputs-container">
+          <input type="email" class="text-input" placeholder="Email..." />
+          <input type="password" class="text-input" placeholder="Password..." />
         </div>
+
+        <button
+          class="login-button"
+          onclick="window.location.href='src/pages/homepage.html'"
+        >
+          Sign In
+        </button>
+
+        <div class="signup-link-container">
+          <a href="src/pages/signup.html" class="signup-link">Sign up</a>
+        </div>
+      </div>
     </div>
 
-<script src="js/rest.js"></script>
-<script>
-    // const restService = 'http://localhost:3000';
-    const restService = 'https://project-bioscoop-restservice.azurewebsites.net';
-    const apiKey = 'YFL0ICl4PtLD8Y/oQ20iyAE';
+    <script src="js/rest.js"></script>
+    <script>
+      // const restService = 'http://localhost:3000';
+      const restService =
+        "https://project-bioscoop-restservice.azurewebsites.net";
+      const apiKey = "YFL0ICl4PtLD8Y/oQ20iyAE";
 
-    // Test: films toevoegen
-    postFilmData(restService, apiKey, {
-        "title": "Spiderman",
-        "description": "Over een man die zich spiderman noemt",
-        "url_trailer": "https://www.youtube.com/watch?v=JfVOs4VSpmA",
-        "timestamp": Date.now(),
-        "category": "action"
-    });
-    postFilmData(restService, apiKey, {
-        "title": "Superman",
-        "description": "Echt een held",
-        "url_trailer": "https://www.youtube.com/watch?v=T6DJcgm3wNY",
-        "timestamp": Date.now(),
-        "category": "action"
-    });
+      // Test: films toevoegen
+      postFilmData(restService, apiKey, {
+        title: "Spiderman",
+        description: "Over een man die zich spiderman noemt",
+        url_trailer: "https://www.youtube.com/watch?v=JfVOs4VSpmA",
+        timestamp: Date.now(),
+        category: "action"
+      });
+      postFilmData(restService, apiKey, {
+        title: "Superman",
+        description: "Echt een held",
+        url_trailer: "https://www.youtube.com/watch?v=T6DJcgm3wNY",
+        timestamp: Date.now(),
+        category: "action"
+      });
 
-    // Test: alle films ophalen
-    getFilms(restService, apiKey)
-        .then((data) => console.log(data));
+      // Test: alle films ophalen
+      getFilms(restService, apiKey).then((data) => console.log(data));
 
-    // Test: details van 1 film ophalen
-    getFilms(restService, apiKey)
-        .then((data) => {
-            getFilmDetails(restService, apiKey, data[0]._id)
-                .then((details)=>console.log(details));
-        });
+      // Test: details van 1 film ophalen
+      getFilms(restService, apiKey).then((data) => {
+        getFilmDetails(restService, apiKey, data[0]._id).then((details) =>
+          console.log(details)
+        );
+      });
 
-    // Test: vote up film
-    getFilms(restService, apiKey)
-        .then((data) => {
-            voteUp(restService, apiKey, data[0]._id)
-                .then((result)=>console.log(result));
-        });
+      // Test: vote up film
+      getFilms(restService, apiKey).then((data) => {
+        voteUp(restService, apiKey, data[0]._id).then((result) =>
+          console.log(result)
+        );
+      });
 
-    // Test: detele a film
-    getFilms(restService, apiKey)
-        .then((data) => {
-            deleteFilm(restService, apiKey, data[0]._id)
-                .then((result)=>console.log(result));
-        });
-
-</script>
-</body>
+      // Test: detele a film
+      getFilms(restService, apiKey).then((data) => {
+        deleteFilm(restService, apiKey, data[0]._id).then((result) =>
+          console.log(result)
+        );
+      });
+    </script>
+  </body>
 </html>
