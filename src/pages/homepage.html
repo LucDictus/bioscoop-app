@@ -3,11 +3,87 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/src/css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/homepage.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <title>Document</title>
+    <script src="https://kit.fontawesome.com/49f912abf1.js" crossorigin="anonymous"></script>
+    <title>Spotlight Cinema</title>
   </head>
   <body>
+    <div class="background">
+        <img src="../img/background.png" alt="background" />
+    </div>
+
+    <div class="app-page-container">
+        <div class="homepage-title">
+            <p class="homepage-title-text">Hi, it's spotlight!</p>
+        </div>
+
+        <div class="homepage-slider-container">
+            <div class="homepage-slider-filter-container">
+                <div class="homepage-filter-item">
+                    <i class="fa-solid fa-filter" style="color: #ffffff;"></i>
+                    Filter
+                </div>
+                <div class="homepage-filter-item">
+                    Location
+                    <i class="fa-solid fa-caret-down" style="color: #ffffff;"></i>
+                </div>
+                <div class="homepage-filter-item">
+                    <i class="fa-solid fa-location-crosshairs" style="color: #ffffff;"></i>
+                    Nearby
+                </div>
+            </div>
+
+            <div class="homepage-slider-title-container">
+                <h3 class="homepage-slider-title">Recommended</h3>
+                <a class="homepage-slider-link" href="./films.html">See all ></a>
+            </div>
+            <div class="homepage-slider-films-container">
+
+            </div>
+        </div>
+
+        <div class="homepage-vote-container">
+            <h2 class="homepage-vote-title">Stem hier</h2>
+            <button onclick="window.location.href='./vote-page.html'" class="homepage-vote-block">
+                <div class="homepage-vote-block-img-container">
+                    <img src="../img/vote-human-left.png" alt="human-left" class="homepage-vote-img">
+                    <img src="../img/vote-human-right.png" alt="human-right" class="homepage-vote-img">
+                </div>
+                <h2 class="homepage-vote-button-title">Stem hier voor jou dagelijkse sneak preview</h2>
+            </button>
+        </div>
+    </div>
+
     <script src="../js/main.js"></script>
+    <script>
+        const restService = "https://project-bioscoop-restservice.azurewebsites.net";
+        const apiKey = "w05KkI9AWhKxzvPFtXotUva";
+
+        const getFilms = async (remoteServer, apiKey) => {
+            const response = await fetch(`${remoteServer}/list/${apiKey}`);
+            // set every film title in a own div that sits in the div class="homepage-slider-films-container"
+            const films = await response.json();
+            const filmsContainer = document.querySelector(".homepage-slider-films-container");
+            
+            films.forEach((film) => {
+                if (!film.img) return;
+                const filmDiv = document.createElement("div");
+                filmDiv.classList.add("homepage-slider-film");
+                filmDiv.innerHTML = `
+                    <div class="homepage-slider-film-item">
+                        <img class="homepage-slider-film-image" src="${film.img}" alt="${film.title}" />
+                        <div class="homepage-slider-film-title">${film.title}</div>
+                    </div>
+                `;
+                filmsContainer.appendChild(filmDiv);
+                console.log(film);
+            });
+        };
+
+        // get fils when page loads in
+        getFilms(restService, apiKey);
+    </script>
   </body>
 </html>
