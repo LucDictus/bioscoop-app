@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/vote-page.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/49f912abf1.js" crossorigin="anonymous"></script>
+    <title>Spotlight Cinema</title>
+</head>
+<body>
+    <div class="background">
+        <img src="../img/background.png" alt="background" />
+    </div>
+
+    <div class="vote-nav">
+        <div class="vote-back-container">
+            <i class="fa-solid fa-chevron-left fa-2xl" style="color: #fffffc;"></i>
+        </div>
+    </div>
+
+    <div class="vote-main">
+        <div class="vote-films-container"></div>
+    </div>
+
+    <div class="vote-confirmation-popup-container">
+        <div class="vote-confirmation-popup">
+            <div class="vote-confirmation-popup-icon">
+                <i class="fa-solid fa-check fa-2xl" style="color: #ffffff;"></i>
+            </div>
+            <div class="vote-confirmation-popup-text">Bedankt voor het stemmen!</div>
+            <div class="vote-confirmation-popup-button">
+                <button class="vote-confirmation-popup-button-close">Ga terug</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        const restService = "https://project-bioscoop-restservice.azurewebsites.net";
+        const apiKey = "w05KkI9AWhKxzvPFtXotUva";
+
+        const getFilms = async (remoteServer, apiKey) => {
+            const response = await fetch(`${remoteServer}/list/${apiKey}`);
+            const films = await response.json();
+            const filmsContainer = document.querySelector(".vote-films-container");
+            // get 3 random films
+            films.sort(() => Math.random() - 0.5);
+            films.splice(3);
+            films.forEach((film) => {
+                if (!film.img) return;
+                
+                const filmDiv = document.createElement("div");
+                filmDiv.classList.add("homepage-slider-film");
+                filmDiv.innerHTML = `
+                    <div class="homepage-slider-film-item">
+                        <img class="homepage-slider-film-image" src="${film.img}" alt="${film.title}" />
+                    </div>
+                    <div class="homepage-slider-film-item-content">
+                        <div class="homepage-slider-film-title">${film.title}</div>
+                        <div class="homepage-slider-film-description">${film.description}</div>
+                        <div class="homepage-slider-film-button-container">
+                            <button class="homepage-slider-film-button homepage-slider-film-button-vote">Vote</button>
+                            <button class="homepage-slider-film-button">Boek nu</button>
+                        </div>
+                    </div>
+                `;
+                filmsContainer.appendChild(filmDiv);
+                console.log(film);
+            });
+
+            // when user clicks vote button, show confirmation popup div class vote-confirmation-popup
+            const voteButtons = document.querySelectorAll(".homepage-slider-film-button-vote");
+            voteButtons.forEach((voteButton) => {
+                voteButton.addEventListener("click", () => {
+                    const voteConfirmationPopupContainer = document.querySelector(".vote-confirmation-popup-container");
+                    voteConfirmationPopupContainer.style.display = "flex";
+                });
+            });
+
+        };
+
+        // get fils when page loads in
+        getFilms(restService, apiKey);
+
+        //make so that when user clicks div class vote-back-container, the user gets redirected to last page he was on
+        const voteBackContainer = document.querySelector(".vote-back-container");
+        voteBackContainer.addEventListener("click", () => {
+            window.history.back();
+        });
+
+        //make so that when user clicks div class vote-confirmation-popup-button-close, the user gets redirected to last page he was on
+        const voteConfirmationPopupButtonClose = document.querySelector(".vote-confirmation-popup-button-close");
+        voteConfirmationPopupButtonClose.addEventListener("click", () => {
+            window.history.back();
+        });
+
+        
+        
+
+    </script>
+</body>
+</html>
