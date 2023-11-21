@@ -24,8 +24,8 @@
 
 .homepage-slider-container {
     width: 100%;
-    height: 369px;
-    padding: 10px 0;
+    height: 385;
+    padding: 10px 0 0 0;
 }
 .homepage-slider-filter-container {
     width: 100%;
@@ -59,7 +59,7 @@
 }
 .homepage-slider-films-container {
     width: 100%;
-    height: 275px;
+    height: 290px;
     padding: 0 10px;
     overflow-x: scroll;
     overflow-y: hidden;
