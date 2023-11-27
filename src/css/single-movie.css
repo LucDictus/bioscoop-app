@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Figtree:wght@400;500;600;700;800;900&family=Roboto+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+.movie-image{
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 250px;
+    display: flex;
+    justify-content: start;
+    align-items: end;
+    padding: 10px;
+    
+
+}
+
+.head-movie-title{
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+color: white;
+}
+
+.row{
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+}
+
+.background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 745px;
+}
+
+.background img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.movie-main{
+    display: flex;
+    justify-content: start;
+    max-width: 100vw;
+    padding: 10px 25px;
+    flex-wrap: wrap;
+    gap: 25px;
+    overflow-x: hidden;
+}
+
+.movie-info span{
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: white;
+
+}
+
+.movie-info.row{
+    flex-wrap: wrap;
+}
+
+p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+color: white;
+}
+
+p.movie-detail-notice{
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    background: linear-gradient(43deg, #00ECF1 3.23%, rgba(190, 254, 255, 0.80) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2.movie-detail-section-title{
+    font-family: 'Roboto', sans-serif;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    color: white;
+}
+
+.movie-date-picker-btn{
+    font-family: 'Roboto', sans-serif;
+    border-radius: 4px;
+    width: 50px;
+    height: 50px;
+    font-size: 10px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+border: none;
+}
+
+.movie-time-picker-btn{
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5px;
+    width: 80px;
+    height: 50px;
+    font-size: 10px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+border: none;
+}
+
+strong{
+    text-transform: uppercase;
+}
+.movie-date-picker-btns,.movie-time-picker-btns{
+    display: flex;
+    justify-content: start;
+    max-width: 100vw;
+    flex-wrap: wrap;
+    gap: 25px;
+
+}
+
+.movie-footer-title{
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    background:  linear-gradient(87deg, #FF986D 1.73%, #F67766 98.36%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-align: center;
+}
