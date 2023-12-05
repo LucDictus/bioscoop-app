@@ -20,21 +20,6 @@
         </div>
 
         <div class="homepage-slider-container">
-            <div class="homepage-slider-filter-container">
-                <div class="homepage-filter-item">
-                    <i class="fa-solid fa-filter" style="color: #fffffc;"></i>
-                    Filter
-                </div>
-                <div class="homepage-filter-item">
-                    Location
-                    <i class="fa-solid fa-caret-down" style="color: #fffffc;"></i>
-                </div>
-                <div class="homepage-filter-item">
-                    <i class="fa-solid fa-location-crosshairs" style="color: #fffffc;"></i>
-                    Nearby
-                </div>
-            </div>
-
             <div class="homepage-slider-title-container">
                 <h3 class="homepage-slider-title">Recommended</h3>
                 <a class="homepage-slider-link" href="./films.html">See all ></a>
@@ -85,6 +70,10 @@
 
         // get fils when page loads in
         getFilms(restService, apiKey);
+
+        //get main.js ul and for the first li item add class nav-item-active, select only the first li item
+        const navItem = document.querySelector(".nav-item");
+        navItem.classList.add("nav-item-active");
     </script>
   </body>
 </html>
