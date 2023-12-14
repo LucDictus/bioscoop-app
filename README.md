@@ -1,4 +1,5 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/DBqCRJm2)
+# Dit is momenteel nog in development
+
 # Project 'De democratische bioscoop'
 Dit project gaat verder op de resultaten van de bioscoop-app die jullie hebben ontwikkeld voor het vak Interaction Design.
 Met groepjes van twee ga je een van de aangeleverde ontwerpen uitwerken in html, css en javascript.
